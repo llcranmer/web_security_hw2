@@ -55,30 +55,43 @@ public class HW2 {
   //   byte[] cipherText = Files.readAllBytes(Paths.get("cipher3.txt"));
     
   //   // BEGIN SOLUTION
-  //   byte[] plainText = cipherText;    
-  //   // END SOLUTION
-    
-  //   System.out.println(new String(plainText, StandardCharsets.UTF_8));
-  // }
-
-  // static void P4() throws Exception {
   //   byte[] iv = new byte[] { 0, 0, 0, 0, 
   //                            0, 0, 0, 0, 
   //                            0, 0, 0, 0, 
   //                            0, 0, 0, 0 };
-  //   byte[] cipherText = Files.readAllBytes(Paths.get("cipher4.txt"));
-    
-  //   // BEGIN SOLUTION
-  //   byte[] plainText = cipherText;    
+
+  //   byte[] key =  new byte[] { 0, 0, 0, 0, 
+  //                              0, 0, 0, 0, 
+  //                              0, 0, 0, 0, 
+  //                              0, 0, 0, 0 };
+
+  //   Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+  //   cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key, "AES"), new IvParameterSpec(iv));
+  //   byte[] plainText = cipher.doFinal(cipherText);  
+
   //   // END SOLUTION
     
   //   System.out.println(new String(plainText, StandardCharsets.UTF_8));
   // }
 
+  static void P4() throws Exception {
+    byte[] iv = new byte[] { 0, 0, 0, 0, 
+                             0, 0, 0, 0, 
+                             0, 0, 0, 0, 
+                             0, 0, 0, 0 };
+    byte[] cipherText = Files.readAllBytes(Paths.get("cipher4.txt"));
+    
+    // BEGIN SOLUTION
+    byte[] plainText = cipherText;    
+    // END SOLUTION
+    
+    System.out.println(new String(plainText, StandardCharsets.UTF_8));
+  }
+
   public static void main(String [] args) {
     try {  
-      //P1();
-       P2();
+       //P1();
+       //P2();
       // P3();
       // P4();
     } catch (Exception e) {

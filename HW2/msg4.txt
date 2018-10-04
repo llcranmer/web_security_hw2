@@ -1,0 +1,12 @@
+Mr. Moran,
+
+My agent is 6 feet tall and has short dark hair. He will be wearing a red fedora hat and holding a yellow umbrella. You are meeting him in London, so I suggest you take an umbrella too.
+
+To evade the detectives, I have encrypted the exact location of the meeting. You may decrypt the ciphertext using the following information:
+- encryption is AES in ECB mode with ISO10126Padding padding,
+- first byte of the key is a random number between 1 and 30, which we have exchanged in person earlier,
+- second byte of the key is also a random number between 1 and 30,
+- the remaining 14 bytes of the key are all zero.
+
+Sincerely,
+Professor Moriarty

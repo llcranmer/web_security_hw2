@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
  
 public class HW2 {    
+<<<<<<< HEAD
   static void P1() throws Exception {
     // Has all ready been encrypted with 
     // Cipher cipher = Cipher.getInstance("AES/CBC/ISO0126Padding");
@@ -34,10 +35,25 @@ public class HW2 {
     cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key, "AES"), new IvParameterSpec(iv));
     byte[] plainText = cipher.doFinal(cipherText);    
     // END SOLUTION
+=======
+  
+  // static void P1() throws Exception {
+  //   byte[] cipherText = Files.readAllBytes(Paths.get("cipher1.txt"));
     
-    System.out.println(new String(plainText, StandardCharsets.UTF_8));
-  }
+  //   // BEGIN SOLUTION
+  //   byte[] iv = new byte[] { 0, 0, 0, 0, 
+  //                            0, 0, 0, 0, 
+  //                            0, 0, 0, 0, 
+  //                            0, 0, 0, 0 };
+  //   byte[] key;
+  //   byte[] plainText = cipherText;    
+  //   // END SOLUTION
+>>>>>>> prob_2
+    
+  //   System.out.println(new String(plainText, StandardCharsets.UTF_8));
+  // }
 
+<<<<<<< HEAD
   // static void P2() throws Exception {    
   //   // BEGIN SOLUTION
   //   for (int i = 0; i < 1; i++) {
@@ -45,6 +61,21 @@ public class HW2 {
   //   }
   //   // END SOLUTION
   // }
+=======
+  static void P2() throws Exception {    
+    // BEGIN SOLUTION
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    for (int i = 0; i < 1000; i++) {
+      byte[] message = Files.readAllBytes(Paths.get(String.format("/Users/toul/Desktop/F_2018/Web_Security/HW2/HW2/messages/plain2%d.txt", i)));
+      byte[] encodedHash = digest.digest(message);
+      if(encodedHash[0] == 3 && encodedHash[1] == 59){
+        System.out.print("2"+i);
+      }
+
+    }
+    // END SOLUTION
+  }
+>>>>>>> prob_2
 
   // static void P3() throws Exception {
   //   byte[] cipherText = Files.readAllBytes(Paths.get("cipher3.txt"));
@@ -72,8 +103,13 @@ public class HW2 {
 
   public static void main(String [] args) {
     try {  
+<<<<<<< HEAD
       P1();
       // P2();
+=======
+      //P1();
+       P2();
+>>>>>>> prob_2
       // P3();
       // P4();
     } catch (Exception e) {

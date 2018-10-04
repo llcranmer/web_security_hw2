@@ -11,58 +11,71 @@ import java.util.Arrays;
  
 public class HW2 {    
   static void P1() throws Exception {
+    // Has all ready been encrypted with 
+    // Cipher cipher = Cipher.getInstance("AES/CBC/ISO0126Padding");
+    // byte[] cipherText = cipher.doFinal(plainText)
+    // Decrypt mode
+    //  Key key = cipher.init(Cipher.DECRYPT_MODE, key);
+
     byte[] cipherText = Files.readAllBytes(Paths.get("cipher1.txt"));
-    
+
     // BEGIN SOLUTION
     byte[] iv = new byte[] { 0, 0, 0, 0, 
                              0, 0, 0, 0, 
                              0, 0, 0, 0, 
                              0, 0, 0, 0 };
-    byte[] key;
-    byte[] plainText = cipherText;    
+
+    byte[] key =  new byte[] { 0, 0, 0, 0, 
+                               0, 0, 0, 0, 
+                               0, 0, 0, 0, 
+                               0, 0, 0, 0 };
+
+    Cipher cipher = Cipher.getInstance("AES/CBC/ISO10126Padding");
+    cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key, "AES"), new IvParameterSpec(iv));
+    byte[] plainText = cipher.doFinal(cipherText);    
     // END SOLUTION
     
     System.out.println(new String(plainText, StandardCharsets.UTF_8));
   }
 
-  static void P2() throws Exception {    
-    // BEGIN SOLUTION
-    for (int i = 0; i < 1; i++) {
-      byte[] message = Files.readAllBytes(Paths.get(String.format("messages/plain2%d.txt", i)));
-    }
-    // END SOLUTION
-  }
+  // static void P2() throws Exception {    
+  //   // BEGIN SOLUTION
+  //   for (int i = 0; i < 1; i++) {
+  //     byte[] message = Files.readAllBytes(Paths.get(String.format("messages/plain2%d.txt", i)));
+  //   }
+  //   // END SOLUTION
+  // }
 
-  static void P3() throws Exception {
-    byte[] cipherText = Files.readAllBytes(Paths.get("cipher3.txt"));
+  // static void P3() throws Exception {
+  //   byte[] cipherText = Files.readAllBytes(Paths.get("cipher3.txt"));
     
-    // BEGIN SOLUTION
-    byte[] plainText = cipherText;    
-    // END SOLUTION
+  //   // BEGIN SOLUTION
+  //   byte[] plainText = cipherText;    
+  //   // END SOLUTION
     
-    System.out.println(new String(plainText, StandardCharsets.UTF_8));
-  }
+  //   System.out.println(new String(plainText, StandardCharsets.UTF_8));
+  // }
 
-  static void P4() throws Exception {
-    byte[] iv = new byte[] { 0, 0, 0, 0, 
-                             0, 0, 0, 0, 
-                             0, 0, 0, 0, 
-                             0, 0, 0, 0 };
-    byte[] cipherText = Files.readAllBytes(Paths.get("cipher4.txt"));
+  // static void P4() throws Exception {
+  //   byte[] iv = new byte[] { 0, 0, 0, 0, 
+  //                            0, 0, 0, 0, 
+  //                            0, 0, 0, 0, 
+  //                            0, 0, 0, 0 };
+  //   byte[] cipherText = Files.readAllBytes(Paths.get("cipher4.txt"));
     
-    // BEGIN SOLUTION
-    byte[] plainText = cipherText;    
-    // END SOLUTION
+  //   // BEGIN SOLUTION
+  //   byte[] plainText = cipherText;    
+  //   // END SOLUTION
     
-    System.out.println(new String(plainText, StandardCharsets.UTF_8));
-  }
+  //   System.out.println(new String(plainText, StandardCharsets.UTF_8));
+  // }
 
   public static void main(String [] args) {
     try {  
       P1();
-      P2();
-      P3();
-      P4();
+      // P2();
+      // P3();
+      // P4();
     } catch (Exception e) {
       e.printStackTrace();
     } 
